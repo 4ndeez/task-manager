@@ -1,0 +1,9 @@
+.field
+  - if @users.empty?
+    %br/
+    - 'There are 0 users registered'
+  - else
+    %ol
+      - @users.map do |user|
+        %li
+          %b= link_to user.first_name, controller: "users", action: "show", id: user
