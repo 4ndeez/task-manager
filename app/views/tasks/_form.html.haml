@@ -1,22 +1,23 @@
-= form_for @task do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      %ul
-        - @task.errors.full_messages.each do |message|
-          %li= message
+.container.mt-4.text-center
+  = form_for @task do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+        %ul
+          - @task.errors.full_messages.each do |message|
+            %li= message
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :status
-    = f.select :status, Task.statuses.keys
-  .field
-    = f.label :user
-    = f.select :user_id, concat_usernames(User.all)
-  .actions
-    = f.submit 'Save'
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :description
+      = f.text_field :description
+    .field
+      = f.label :status
+      = f.select :status, Task.statuses.keys
+    .field
+      = f.label :user
+      = f.select :user_id, concat_usernames(User.all)
+    .actions
+      = f.submit 'Save', class: 'btn btn-success'
