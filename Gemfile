@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'bootstrap'
+
+gem 'mini_racer'
+
 #  Use devise for authentication
 gem 'devise'
 # Better view template than erb
