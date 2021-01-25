@@ -1,18 +1,40 @@
 %p#notice= notice
-
-%p
-  %b Title:
-  = @task.title
-%p
-  %b Description:
-  = @task.description
-%p
-  %b Status:
-  = @task.status
-%p
-  %b User:
-  = "#{@task.user.first_name} #{@task.user.last_name}"
-
-= link_to 'Edit', edit_task_path(@task)
-\|
-= link_to 'Back', tasks_path
+.container
+  .row
+    .col-2
+    .col-8.bg-light.border.border-dark.rounded
+      .row
+        .col-12.mt-2
+          %h4
+            %b Title:
+      .row
+        .col-12.border-bottom
+          = @task.title
+      .row
+        .col-12
+          %h4
+            %b Description:
+      .row
+        .col-12.border-bottom
+          = @task.description
+      .row
+        .col-12
+          %h4
+            %b Status:
+      .row
+        .col-12.border-bottom.border-dark
+          = @task.status
+      .row
+        .col
+          %b Assigned to:
+          .row
+            .col
+              = link_to "#{@task.user.first_name} #{@task.user.last_name}", controller: :users, action: :show, id: @task.user_id
+        .col
+        .col
+          .row.m-1
+            .col
+              = link_to 'Edit', edit_task_path(@task), class: 'btn btn-outline-warning btn-block'
+            .col
+              = link_to 'Back', tasks_path, class: 'btn btn-outline-secondary btn-block'
+    .col-2

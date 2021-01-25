@@ -41,6 +41,8 @@ gem 'mini_racer'
 gem 'devise'
 # Better view template than erb
 gem 'haml-rails'
+# for jQuery
+gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

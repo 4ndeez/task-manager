@@ -7,17 +7,29 @@
           - @task.errors.full_messages.each do |message|
             %li= message
 
-    .field
-      = f.label :title
-      = f.text_field :title
-    .field
+    .form-group
+      %h4= f.label :title
+      = f.text_field :title, class: 'form-control'
+    .form-group
       = f.label :description
-      = f.text_field :description
-    .field
-      = f.label :status
-      = f.select :status, Task.statuses.keys
-    .field
-      = f.label :user
-      = f.select :user_id, concat_usernames(User.all)
-    .actions
-      = f.submit 'Save', class: 'btn btn-success'
+      = f.text_field :description, class: 'form-control'
+    .form-group
+      .row
+        .col
+          = f.label :status
+      .row
+        .col
+          = f.select :status, Task.statuses.keys, class: 'custom-select custom-select-sm'
+    .form-group
+      .row
+        .col
+          = f.label :user
+      .row
+        .col
+          = f.select :user_id, concat_usernames(User.all)
+    .actions.border-top
+      .row
+        .col-lg
+        .col-lg
+        .col-sm.mt-2
+          = f.submit 'Save', class: 'btn btn-success btn-block'

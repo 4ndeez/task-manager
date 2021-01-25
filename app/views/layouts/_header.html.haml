@@ -7,8 +7,5 @@
           .nav-item.dropdown
             = link_to current_user.email, users_url(current_user), class: 'text-white dropdown-toggle', 'data-toggle': 'dropdown'
             = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-white'
-            .dropdown-menu
-              = link_to 'Profile', users_url(current_user), class: 'dropdown-item text-primary'
-              = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item text-primary'
         - else
-          = link_to 'Log in', new_user_session_path, class: 'btn btn-light'
+          = link_to 'Log in', new_user_session_path, class: 'btn btn-light text-primary'

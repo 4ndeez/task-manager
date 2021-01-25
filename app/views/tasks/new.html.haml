@@ -1,5 +1,11 @@
-%h1 New task
-
-= render 'form'
-
-= link_to 'Back', tasks_path
+.container
+  .row
+    .col-2
+    .col-8.content.mt-2.bg-light.rounded
+      .row
+        .col
+          %h1.text-center.border-bottom New task
+        = render 'form'
+      .row
+        .col-sm.mb-1
+          = link_to 'Back', tasks_path, class: 'btn btn-outline-secondary'

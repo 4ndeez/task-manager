@@ -1,6 +1,6 @@
 .container.mt-4.text-center
   .row
-    .col-4.border.m-auto
+    .col-4.border.m-auto.bg-light
       %h2.border-bottom Sign up
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource

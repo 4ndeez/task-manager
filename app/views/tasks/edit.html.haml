@@ -1,7 +1,14 @@
-%h1 Editing task
+.container
+  .row
+    .col-2
+    .col-8.content.mt-2.bg-light.rounded
+      .row
+        .col
+          %h1.text-center.border-bottom Editing task
 
-= render 'form'
+      = render 'form'
+      .row
+        .col-sm.mb-1
+          = link_to 'Back', tasks_path, class: 'btn btn-outline-secondary'
+    .col-2
 
-= link_to 'Show', @task
-\|
-= link_to 'Back', tasks_path
