@@ -1,11 +1,42 @@
-%h2 User profile
-%ul
-  %li
-    %b First name -
-    = @user.first_name
-  %li
-    %b Last name -
-    = @user.last_name
-  %li
-    %b EMAIL -
-    = @user.email
+%p#notice= notice
+.container
+  .row
+    .col-2
+    .col-8.bg-light.border.border-dark.rounded.text-center
+      .row
+        .col.border-bottom
+          %h2= "#{@user.first_name} #{@user.last_name}'s profile"
+      .row
+        .col-12.mt-2
+          %h4
+            %b First name:
+      .row
+        .col-12.border-bottom
+          = @user.first_name
+      .row
+        .col-12
+          %h4
+            %b Last name:
+      .row
+        .col-12.border-bottom
+          = @user.last_name
+      .row
+        .col-12
+          %h4
+            %b Email:
+      .row
+        .col-12.border-bottom.border-dark
+          = @user.email
+      .row
+        .col-lg
+        .col-lg
+        .col-lg
+        .col-sm.m-1
+          - if @user == current_user
+            = link_to 'Edit', edit_user_registration_url, class: 'btn btn-warning btn-block'
+    .col-2
+  .row.mt-4
+    .col-12.bg-light.border.border-dark.rounded.text-center
+      %h2.border-bottom= "#{@user.first_name} #{@user.last_name}'s tasks"
+      = render 'tasks/task', object: @tasks = @user.tasks
+

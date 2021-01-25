@@ -1,0 +1,22 @@
+%table.table.mt-2.border.border-dark.col-12
+  %thead.thead-dark
+    %tr
+      %th ID
+      %th Title
+      %th.col-6 Description
+      %th Status
+      %th User
+      %th
+      %th
+      %th
+  %tbody.bg-light
+    - @tasks.each do |task|
+      %tr
+        %td.border.border-dark= task.id
+        %td.border.border-dark= task.title
+        %td.border.border-dark= task.description
+        %td.border.border-dark= task.status
+        %td.border.border-dark= link_to "#{task.user.first_name} #{task.user.last_name}", controller: :users, action: :show, id: task.user_id
+        %td.border.border-dark= link_to 'SHOW', task, class: 'btn btn-outline-primary btn-small'
+        %td.border.border-dark= link_to 'EDIT', edit_task_path(task), class: 'btn btn-outline-warning btn-small'
+        %td.border.border-dark= link_to 'DELETE', task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-small'
