@@ -1,26 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe TasksController, type: :controller do
+  let(:user) { create(:user) }
+
   context 'GET #index' do
     before do
-      @users = create(:user)
+      @tasks = create(:task)
       get :index
     end
 
     it 'returns a successful response' do
-      get :index
       expect(response).to have_http_status(:ok)
     end
 
     it 'assigns instance variable' do
-      expect(@users).to be_truthy
+      expect(@tasks).to be_truthy
     end
   end
 
   context 'GET #show' do
     before do
-      @user = create(:user)
-      get :show, params: { id: @user }
+      @task = create(:task)
+      get :show, params: { id: @task }
     end
 
     it 'returns a successful response' do
@@ -28,7 +29,14 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it 'assigns instance variable' do
-      expect(@user).to be_truthy
+      expect(@task).to be_truthy
+    end
+  end
+
+  context 'GET #new' do
+    it 'returns a successful response' do
+      get :new
+      expect(response).to have_http_status(:ok)
     end
   end
 end
