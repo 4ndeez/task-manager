@@ -6,6 +6,7 @@
         - if user_signed_in?
           .nav-item.dropdown
             = link_to current_user.email, users_url(current_user), class: 'text-white dropdown-toggle', 'data-toggle': 'dropdown'
-            = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-white'
+            = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn bg-light text-primary'
         - else
-          = link_to 'Log in', new_user_session_path, class: 'btn btn-light text-primary'
+          = link_to 'Register', new_user_registration_path, class: 'btn btn-success'
+          = link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-primary bg-light'
